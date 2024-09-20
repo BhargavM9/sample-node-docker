@@ -5,7 +5,9 @@ MAINTAINER Calvin Lee Fernandes
 WORKDIR /opt/app
 
 # Copy contents of dist folder to /opt/app
-ADD dist /opt/app
+COPY . .
+RUN npm install express
+RUN npm install -g gulp
 
 # Give ownership to daemon user
 RUN ["chown", "-R", "daemon:daemon", "."]
